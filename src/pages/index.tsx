@@ -1,8 +1,13 @@
 import type { NextPage } from "next";
+import { CumulativeGraphicCard } from "../components/cardGraphs/CumulativeGraphicCard";
 import { Page } from "../components/Page";
-
 const Home: NextPage = () => {
-  return <Page children={undefined}></Page>;
+  return (
+    <Page>
+
+      <CumulativeGraphicCard />
+    </Page>
+  );
 };
 
 export default Home;
