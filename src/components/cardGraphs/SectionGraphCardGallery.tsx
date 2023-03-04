@@ -2,8 +2,8 @@ import { SectionGraphCard } from "./SectionGraphCard";
 
 export function SectionGraphCardGallery() {
   return (
-    <div>
-      <div className="flex justify-center">
+    <div className="mt-4">
+      <div className="flex flex-col items-center desktop:flex-row justify-center">
         <SectionGraphCard
           sectionName="Gold & Silver"
           currentSectionValue={46}
@@ -25,7 +25,7 @@ export function SectionGraphCardGallery() {
           graphLabel="graphLabel"
         />
       </div>
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center desktop:flex-row justify-center">
         <SectionGraphCard
           sectionName="Crypto"
           currentSectionValue={46}
