@@ -1,3 +1,4 @@
+import { HiOutlineTrendingDown, HiOutlineTrendingUp } from "react-icons/hi";
 import { Bar, Line } from "react-chartjs-2";
 import {
   BarElement,
@@ -28,7 +29,7 @@ interface SectionGraphCardProps {
   graphTension: number;
   fillGraph: boolean;
   graphType: string;
-  graphLabel: string
+  graphLabel: string;
 }
 
 export function SectionGraphCard({
@@ -48,10 +49,22 @@ export function SectionGraphCard({
     >
       <div className="pb-0 flex justify-between items-start mb-4">
         <div>
-          <div className="text-lg font-semibold">
+          <div className="flex flex-row items-center text-lg font-semibold">
             {currentSectionValue}
             <span className="text-sm ml-2 font-normal">
-              {currentSectionDelta}%
+              {currentSectionDelta > 0 ? (
+                <div className="flex flex-row items-center">
+                  <HiOutlineTrendingUp />
+                  {currentSectionDelta}
+                  {"%"}
+                </div>
+              ) : (
+                <div className="flex flex-row items-center">
+                  <HiOutlineTrendingDown />
+                  {currentSectionDelta}
+                  {"%"}
+                </div>
+              )}
             </span>
           </div>
           <div>{sectionName}</div>

@@ -29,7 +29,7 @@ export function SectionGraphCardGallery() {
         <SectionGraphCard
           sectionName="Crypto"
           currentSectionValue={46}
-          currentSectionDelta={26}
+          currentSectionDelta={-26}
           backgroundColor="#28a745"
           graphTension={0}
           fillGraph={true}
