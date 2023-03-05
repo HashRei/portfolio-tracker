@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import Divider from "@mui/material/Divider";
@@ -16,8 +15,8 @@ import ListItemText from "@mui/material/ListItemText";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import CollectionsIcon from "@mui/icons-material/Collections";
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { BsShare } from "react-icons/bs";
 
 interface NavbarButtonProps {
   text?: string;
@@ -51,7 +50,9 @@ export function Navbar() {
             quality={100}
           /> */}
           <Link href="/" passHref>
-            <p className="font-bold text-4xl cursor-pointer">Protfolio-Tracker</p>
+            <p className="font-bold text-4xl cursor-pointer">
+              Protfolio-Tracker
+            </p>
           </Link>
         </motion.div>
         <div className=" space-x-6">
@@ -68,9 +69,9 @@ export function Navbar() {
           />
         </div>
 
-        {/* <NavbarButton text="Create an NFT" path="/MinterPage" />
-        <NavbarButton text="Marketplace" path="/MarketplacePage" />
-        <NavbarButton text="My collection" path="/MyCollectionPage" /> */}
+        <NavbarButton text="Add asset" path="/" />
+        <NavbarButton text="Asset overview" path="/" />
+        <NavbarButton text="Share portfolio" path="/" />
 
         <DarkModeButton />
 
@@ -88,7 +89,9 @@ export function Navbar() {
               width={"40px"}
               height={"40px"}
             /> */}
-            <p className="hidden tablet:flex font-bold text-4xl">Protfolio-Tracker</p>
+            <p className="hidden tablet:flex font-bold text-4xl">
+              Protfolio-Tracker
+            </p>
           </div>
 
           <div className="inline-flex items-center space-x-4">
@@ -158,12 +161,12 @@ export default function TemporaryDrawer() {
 
   const list = () => (
     <Box>
-      {/* <List>
-        {["Create an NFT", "Marketplace", "My collection"].map(
+      <List>
+        {["Add asset", "Asset overview", "Share portfolio"].map(
           (text, index) => (
             <ListItemButton key={text}>
               {index === 0 && (
-                <Link href="/MinterPage" passHref>
+                <Link href="/" passHref>
                   <button className="inline-flex">
                     <ListItemIcon>
                       <AddCircleIcon />
@@ -176,7 +179,7 @@ export default function TemporaryDrawer() {
                 <Link href="/MarketplacePage" passHref>
                   <button className="inline-flex">
                     <ListItemIcon>
-                      <SwapHorizIcon />
+                      <CollectionsIcon />
                     </ListItemIcon>
                     <ListItemText primary={text} />
                   </button>
@@ -187,7 +190,7 @@ export default function TemporaryDrawer() {
                 <Link href="/MyCollectionPage" passHref>
                   <button className="inline-flex">
                     <ListItemIcon>
-                      <CollectionsIcon />
+                      <BsShare />
                     </ListItemIcon>
                     <ListItemText primary={text} />
                   </button>
@@ -196,7 +199,7 @@ export default function TemporaryDrawer() {
             </ListItemButton>
           )
         )}
-      </List> */}
+      </List>
       <Divider />
       <List>
         {["Github", "Twitter"].map((text, index) => (
