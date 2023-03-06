@@ -17,10 +17,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { BsShare } from "react-icons/bs";
+import { useDisclosure } from "@chakra-ui/hooks";
+import AddAssetFormDialog from "../modals/AddAssetFormDialog";
 
 interface NavbarButtonProps {
   text?: string;
   path: string;
+  openAction?: () => void;
 }
 
 interface NavbarSocialButtonProps {
@@ -31,6 +34,8 @@ interface NavbarSocialButtonProps {
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <div>
@@ -69,7 +74,9 @@ export function Navbar() {
           />
         </div>
 
-        <NavbarButton text="Add asset" path="/" />
+        <AddAssetFormDialog openAction={isOpen} closeAction={onClose} />
+
+        <NavbarButton text="Add asset" path="/" openAction={onOpen} />
         <NavbarButton text="Asset overview" path="/" />
         <NavbarButton text="Share portfolio" path="/" />
 
@@ -129,9 +136,9 @@ const NavbarSocialButton = ({ text, path, icon }: NavbarSocialButtonProps) => {
   );
 };
 
-const NavbarButton = ({ text, path }: NavbarButtonProps) => {
+const NavbarButton = ({ text, path, openAction }: NavbarButtonProps) => {
   return (
-    <Link href={path} passHref>
+    <Link href={path} onClick={openAction} passHref>
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
